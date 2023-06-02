@@ -23,6 +23,7 @@
     margin: 0;
     font-family: "Coolvetica";
     font-weight: 400;
+    white-space: nowrap;
 
     &::before {
       content: "<h1>";
@@ -52,11 +53,12 @@
       margin-left: 10px;
       opacity: 0;
       height: auto;
-      animation: rotateIn 1s linear both;
-      animation-delay: 1.4s;
+      animation: fadeIn 1s forwards, rotateIn 1s linear both;
+      animation-delay: 3s;
 
       &:hover {
-        animation: rotate 0.15s infinite;
+        animation: rotate 0.15s infinite linear;
+        animation-delay: 0s;
       }
     }
   }
