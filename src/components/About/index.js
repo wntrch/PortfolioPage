@@ -1,12 +1,27 @@
-import "index.scss"
+import "./index.scss"
 import AnimatedLetters from "../AnimatedLetters"
+import { useState, useEffect } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const About = () => {
+  const [letterClass, setLetterClass] = useState("text-animate")
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setLetterClass("text-animate-hover")
+    }, 3000)
+
+    return () => {
+      clearTimeout(timerId)
+    }
+  }, [])
+
   return (
     <div className="container about-page">
       <div className="text-zone">
         <h1>
           <AnimatedLetters
+            letterClass={letterClass}
             strArray={["A", "b", "o", "u", "t", " ", "m", "e"]}
             idx={15}
           />
@@ -26,6 +41,13 @@ const About = () => {
           Outside of coding, I love to play soccer and golf, exercise, read,
           play the drums, and learn about new technology!
         </p>
+      </div>
+      <div class="stage-cube-cont">
+        <div className="cubespinner">
+          <div className="face1">
+            <FontAwesomeIcon />
+          </div>
+        </div>
       </div>
     </div>
   )
